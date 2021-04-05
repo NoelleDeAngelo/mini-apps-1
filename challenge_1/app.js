@@ -35,7 +35,7 @@ var checkForWin = function (){
   if(coulmnsHaveWinner()){
     return;
   }
-  if (diagonalHaveWinner()){
+  if (diagonalsHaveWinner()){
     return;
   }
 };
@@ -57,10 +57,31 @@ var rowsHaveWinner= function() {
 }
 
 var coulmnsHaveWinner= function() {
+  if(boardState.space1 === boardState.space4 && boardState.space1 === boardState.space7 &&  boardState.space1 !==null) {
+    alert(`player ${boardState.space1} has won!`)
+    return true;
+  }else if(boardState.space2 === boardState.space5 && boardState.space2 === boardState.space8 &&  boardState.space2 !==null) {
+    alert(`player ${boardState.space2} has won!`)
+    return true;
+  }else if(boardState.space3 === boardState.space6 && boardState.space3 === boardState.space9 &&  boardState.space3 !==null) {
+    alert(`player ${boardState.space3} has won!`)
+    return true;
+  }else {
+    return false;
+  }
 
 }
 
-var diagonalHaveWinner= function() {
+var diagonalsHaveWinner= function() {
+  if(boardState.space1 === boardState.space5 && boardState.space1 === boardState.space9 &&  boardState.space1 !==null) {
+    alert(`player ${boardState.space1} has won!`)
+    return true;
+  }else if(boardState.space3 === boardState.space5 && boardState.space3 === boardState.space7 &&  boardState.space3 !==null) {
+    alert(`player ${boardState.space3} has won!`)
+    return true;
+  }else {
+    return false;
+  }
 
 }
 

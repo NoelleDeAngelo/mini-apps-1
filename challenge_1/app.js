@@ -5,6 +5,8 @@ boardSpaces = [...boardSpaces];
 boardSpaces.forEach((element)=> element.addEventListener('click', (event)=>handleBoardClick(event)));
 var reset = document.getElementById('reset');
 reset.addEventListener('click', (event)=> handleReset());
+document.getElementById('Xwins').innerHTML= `X Wins: 0`
+document.getElementById('Owins').innerHTML= `O Wins: 0`
 
 var gameState = {
 
@@ -32,10 +34,8 @@ wins:{
 }
 
 var handleBoardClick= function (event) {
-  //console.log(event)
   event.target.innerHTML= gameState.currentPlayer;
   gameState.boardState[event.target.attributes.id.value]= gameState.currentPlayer;
-  //console.log(gameState.boardState)
   checkForWin();
   checkForTie()
   gameState.currentPlayer === 'X'? gameState.currentPlayer="O" : gameState.currentPlayer= 'X';
@@ -100,7 +100,10 @@ var diagonalsHaveWinner= function() {
 
 var handleWin = function (winner){
   gameState.winner=winner;
+  gameState.wins[winner]++;
+  document.getElementById(`${winner}wins`).innerHTML= `${winner} Wins: ${gameState.wins[winner]}`
   alert(`player ${winner} has won!`);
+
 }
 
 var checkForTie = function () {

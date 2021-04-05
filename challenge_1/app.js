@@ -19,7 +19,7 @@ var boardState = {
   space8:null,
   space9:null
 }
-
+ var winner= null;
 
 var handleBoardClick= function (event) {
   //console.log(event)
@@ -46,13 +46,16 @@ var checkForWin = function (){
 
 var rowsHaveWinner= function() {
   if(boardState.space1 === boardState.space2 && boardState.space1 === boardState.space3 &&  boardState.space1 !==null) {
-    alert(`player ${boardState.space1} has won!`)
+    alert(`player ${boardState.space1} has won!`);
+    winner= boardState.space1;
     return true;
   }else if(boardState.space4 === boardState.space5 && boardState.space4 === boardState.space6 &&  boardState.space4 !==null) {
-    alert(`player ${boardState.space4} has won!`)
+    alert(`player ${boardState.space4} has won!`);
+    winner= boardState.space4;
     return true;
   }else if(boardState.space7 === boardState.space8 && boardState.space7 === boardState.space9 &&  boardState.space7 !==null) {
-    alert(`player ${boardState.space7} has won!`)
+    alert(`player ${boardState.space7} has won!`);
+    winner= boardState.space7;
     return true;
   }else {
     return false;
@@ -61,13 +64,16 @@ var rowsHaveWinner= function() {
 
 var coulmnsHaveWinner= function() {
   if(boardState.space1 === boardState.space4 && boardState.space1 === boardState.space7 &&  boardState.space1 !==null) {
-    alert(`player ${boardState.space1} has won!`)
+    alert(`player ${boardState.space1} has won!`);
+    winner= boardState.space1;
     return true;
   }else if(boardState.space2 === boardState.space5 && boardState.space2 === boardState.space8 &&  boardState.space2 !==null) {
-    alert(`player ${boardState.space2} has won!`)
+    alert(`player ${boardState.space2} has won!`);
+    winner= boardState.space2;
     return true;
   }else if(boardState.space3 === boardState.space6 && boardState.space3 === boardState.space9 &&  boardState.space3 !==null) {
-    alert(`player ${boardState.space3} has won!`)
+    alert(`player ${boardState.space3} has won!`);
+    winner= boardState.space3;
     return true;
   }else {
     return false;
@@ -77,10 +83,12 @@ var coulmnsHaveWinner= function() {
 
 var diagonalsHaveWinner= function() {
   if(boardState.space1 === boardState.space5 && boardState.space1 === boardState.space9 &&  boardState.space1 !==null) {
-    alert(`player ${boardState.space1} has won!`)
+    alert(`player ${boardState.space1} has won!`);
+    winner= boardState.space1;
     return true;
   }else if(boardState.space3 === boardState.space5 && boardState.space3 === boardState.space7 &&  boardState.space3 !==null) {
-    alert(`player ${boardState.space3} has won!`)
+    alert(`player ${boardState.space3} has won!`);
+    winner= boardState.space3;
     return true;
   }else {
     return false;
@@ -102,5 +110,5 @@ var handleReset= function () {
   for (space in boardState) {
     boardState[space]= null;
   }
-  currentPlayer= "X";
+  currentPlayer= winner || 'X';
 }

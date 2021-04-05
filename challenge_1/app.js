@@ -1,10 +1,15 @@
 
+
+var boardSpaces= document.getElementsByClassName('boardSpace');
+boardSpaces = [...boardSpaces];
+boardSpaces.forEach((element)=> element.addEventListener('click', (event)=>handleBoardClick(event)))
+
 var currentPlayer = 'x';
 
 
 var handleBoardClick= function (event) {
-  console.log('hi')
   console.log(event);
+  //console.log(event);
 };
 
 var checkForWin = function (){

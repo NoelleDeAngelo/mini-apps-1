@@ -25,6 +25,7 @@ var handleBoardClick= function (event) {
   boardState[event.target.attributes.id.value]= currentPlayer;
   //console.log(boardState)
   checkForWin();
+  checkForTie()
   currentPlayer === 'X'? currentPlayer="O" : currentPlayer= 'X';
 };
 
@@ -86,5 +87,10 @@ var diagonalsHaveWinner= function() {
 }
 
 var checkForTie = function () {
-  // might not nees this, if there is no winner and board is full it is a tie
+  for (space in boardState){
+    if(boardState[space]=== null){
+      return;
+    }
+  }
+  alert('Cats\' Game!')
 }

@@ -3,6 +3,8 @@
 var boardSpaces= document.getElementsByClassName('boardSpace');
 boardSpaces = [...boardSpaces];
 boardSpaces.forEach((element)=> element.addEventListener('click', (event)=>handleBoardClick(event)));
+var reset = document.getElementById('reset');
+reset.addEventListener('click', (event)=> handleReset());
 
 var currentPlayer = 'X';
 
@@ -93,4 +95,12 @@ var checkForTie = function () {
     }
   }
   alert('Cats\' Game!')
+}
+
+var handleReset= function () {
+  boardSpaces.forEach((element)=> element.innerHTML= '');
+  for (space in boardState) {
+    boardState[space]= null;
+  }
+  currentPlayer= "X";
 }

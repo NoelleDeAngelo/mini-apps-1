@@ -1,7 +1,7 @@
 body{
 size:100%;
 font-family: 'Rock Salt', cursive;
-background-image: url('free-lined-paper-texture.jpg') ;
+background-image: url('assets/free-lined-paper-texture.jpg') ;
 background-repeat: no-repeat;
 background-size: 100%;
 
@@ -49,13 +49,10 @@ button{
   height:auto;
   transition: .2s;
   font-size: 40px;
-
-
-
 }
+
 button:hover{
   color: #edebe6;
   background-color: #9e9e9e;
 
- 
 }
